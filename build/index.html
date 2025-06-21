@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Web Developer">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Vite.js, weizzx">
+    <meta name="author" content="weizzx">
+    <title></title>
+    <script>
+    const messages = ["weizzx.xyz", "Web Developer", "Creative Coder"];
+    let currentMessage = 0;
+    let currentChar = 0;
+    let isDeleting = false;
+    let cursorVisible = true;
+
+    function updateTitle() {
+      const fullText = messages[currentMessage];
+      let displayText = fullText.substring(0, currentChar);
+      const cursor = cursorVisible ? "|" : " ";
+
+      document.title = displayText + cursor;
+
+      if (!isDeleting && currentChar < fullText.length) {
+        currentChar++;
+      } else if (isDeleting && currentChar > 0) {
+        currentChar--;
+      } else if (!isDeleting && currentChar === fullText.length) {
+        setTimeout(() => isDeleting = true, 1000); // Wait before deleting
+      } else if (isDeleting && currentChar === 0) {
+        isDeleting = false;
+        currentMessage = (currentMessage + 1) % messages.length;
+      }
+    }
+
+    // Toggle cursor blink
+    setInterval(() => {
+      cursorVisible = !cursorVisible;
+    }, 500);
+
+    // Run the typing/deleting animation
+    setInterval(updateTitle, 150);
+  </script>
+    <script type="module" crossorigin src="/assets/index-JfHVbvT8.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ErrGJ6y4.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
