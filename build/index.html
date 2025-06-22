@@ -10,8 +10,15 @@
     <meta name="description" content="Web Developer">
     <meta name="keywords" content="HTML, CSS, JavaScript, Vite.js, weizzx">
     <meta name="author" content="weizzx">
-    <title></title>
-    <script>
+    <title>weizzx</title>
+    <script defer>
+    // If URL has #main hash on load, remove it and reload at base URL
+    if (window.location.hash === "#home") {
+    // Remove the hash without adding history entry, then reload page at base URL
+    history.replaceState(null, "", window.location.pathname);
+    window.location.reload();
+    }
+
     const messages = ["weizzx.xyz", "Web Developer", "Creative Coder"];
     let currentMessage = 0;
     let currentChar = 0;
@@ -45,8 +52,8 @@
     // Run the typing/deleting animation
     setInterval(updateTitle, 150);
   </script>
-    <script type="module" crossorigin src="/assets/index-JfHVbvT8.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-ErrGJ6y4.css">
+    <script type="module" crossorigin src="/assets/index-xdgcUCY5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CruFMHwY.css">
   </head>
   <body>
     <div id="root"></div>
