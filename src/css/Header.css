@@ -1,0 +1,30 @@
+header {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+header .inner {
+  display: grid;
+  grid-template-rows: 5fr 1fr;
+  justify-content: space-around;
+  align-items: center;
+}
+
+header .title {
+  margin: 5px 0;
+}
+
+header .arrow {
+  transition: 1s;
+}
+
+header .arrow:hover {
+  transform: translateY(-10px);
+  transition: 1s;
+  filter: drop-shadow(0 0 30px #a78bfa);
+}
+
+header a {
+  display: flex;
+  justify-content: center;
+}

@@ -14,18 +14,3 @@
   animation: pulse 2s infinite ease-in-out;
   filter: drop-shadow(0 0 30px #a78bfa);
 }
-
-@keyframes pulse {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.1);
-    opacity: 1;
-  }
-}
-
-.fade-out {
-  opacity: 0;
-}

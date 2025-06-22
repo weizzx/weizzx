@@ -1,71 +1,101 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
+  color-scheme: dark;
   color: var(--light);
   background-color: var(--dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --title: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --body: Ubuntu Mono, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
   --dark: #0D0D11;
   --light: #FAF9F6;
+
 }
 
-a {
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--light);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* background-color: #980098; */
+}
+
+::selection {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
+
+.inner {
+  width: min( 75vw, 69em );
+  height: 100%;
+  padding: 0 min( 5vw, 4em );
+}
+
+header, main, footer > .inner {
+  display: flex;
+  justify-content: center;
+}
+
+header, main, footer {
+  width: 100%;
+}
+
+@media only screen and (max-width: 480px) { .inner { width: 100% } }
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: var(--title) }
+
+h1 { font-weight: bolder; font-size: clamp(1.2rem, 0.6461538461538461rem + 3.4615384615384617vw, 4.8rem); }
+h2 { font-weight: bolder; font-size: clamp(1rem, 0.5384615384615384rem + 2.8846153846153846vw, 4rem); }
+h3 { font-weight: bold; font-size: clamp(0.8rem, 0.43076923076923074rem + 2.3076923076923084vw, 3.2rem); }
+h4 { font-weight: bold; font-size: clamp(0.6rem, 0.32307692307692304rem + 1.7307692307692308vw, 2.4rem); }
+
+a, p, text, code { font-family: var(--body); font-size: clamp(0.4rem, 0.21538461538461537rem + 1.1538461538461542vw, 1.6rem); }
+
+code { font-family: "Source Code Pro", monospace }
+
+a, code {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #6400ff;
 }
 a:hover {
   color: #535bf2;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 @media (prefers-color-scheme: light) {
   :root {
+    color-scheme: light;
     color: var(--dark);
     background-color: var(--light);
   }
-  a:hover {
-    color: #747bff;
+  ::selection {
+  background-color: var(--dark);
+  color: var(--light);
   }
-  button {
-    background-color: #f9f9f9;
-  }
+
+
 }
